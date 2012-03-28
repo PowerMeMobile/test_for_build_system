@@ -9,6 +9,8 @@ RMDIR=$(RM) -d
 GMCS=gmcs
 CSFLAGS=-debug -r:System.dll
 
+SRC_LIST=$(SRC_D)/Program.cs $(SRC_D)/Tool.cs
+
 all: $(BIN_D)/Program.exe
 
 clean:
@@ -23,7 +25,7 @@ $(BUILD_D):
 $(BIN_D): $(BUILD_D)
 	$(MKDIR) $(BIN_D)
 
-$(BIN_D)/Program.exe $(BIN_D)Program.exe.mdb: $(BIN_D) $(SRC_D)/Program.cs
-	$(GMCS) $(CSFLAGS) -out:$(BIN_D)/Program.exe $(SRC_D)/Program.cs
+$(BIN_D)/Program.exe $(BIN_D)Program.exe.mdb: $(BIN_D) $(SRC_LIST)
+	$(GMCS) $(CSFLAGS) -out:$(BIN_D)/Program.exe $(SRC_LIST)
 
 
