@@ -15,6 +15,7 @@ SRC_LIST=$(SRC_D)/Program.cs $(SRC_D)/Tool.cs
 all: $(BIN_D)/Program.exe
 
 release: $(BUILD_D)/release-$(VERSION).tgz
+	@echo "BUILD-ASSET: $(BUILD_D)/release-$(VERSION).tgz"
 
 $(BUILD_D)/release-$(VERSION).tgz: $(BUILD_D) $(BIN_D)/Program.exe
 	$(TAR) cz $(BIN_D) > $(BUILD_D)/release-$(VERSION).tgz
